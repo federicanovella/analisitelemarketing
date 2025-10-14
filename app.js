@@ -119,7 +119,7 @@ class TelemarketingDashboard {
                         <input type="number" id="${mese}_appuntamentiPercorsi" min="0" value="0">
                     </div>
                     <div class="form-group">
-                        <label>Condominii Potenziali (20 POD + 4 PDR)</label>
+                        <label>Amministratori Potenziali (20 POD + 4 PDR)</label>
                         <input type="number" id="${mese}_condominiiPotenziali" min="0" value="0">
                     </div>
                     <div class="form-group">
@@ -397,7 +397,7 @@ class TelemarketingDashboard {
                 const valorePOD = data.potenzialePOD * this.data.valorePOD;
                 const valorePDR = data.potenzialePDR * this.data.valorePDR;
                 const totalePotenziale = valorePOD + valorePDR;
-                const roi = costoTotale > 0 ? ((totalePotenziale - costoTotale) / costoTotale * 100) : 0;
+                const roi = costoTotale > 0 ? ((totalePotenziale - (costoTotale + 1500) / (costoTotale+1500) * 100) : 0;
 
                 csvContent += `${mese},${data.chiamatePartite},${chiamateEffettive},${data.nonRisponde},${data.nonInteressato},${data.numeroErrato},${data.appuntamentiFissati},${data.appuntamentiPercorsi},${data.oreLavorate},${data.costoOrario},${costoTotale.toFixed(2)},${data.condominiiPotenziali},${data.potenzialePOD},${data.potenzialePDR},${valorePOD},${valorePDR},${totalePotenziale},${roi.toFixed(2)}\n`;
             });
